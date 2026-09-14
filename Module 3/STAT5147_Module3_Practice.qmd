@@ -1,0 +1,34 @@
+---
+title: "STAT5147 Module3 - Practice"
+author: "Aheer Sravon"
+format: pdf
+editor: visual
+---
+
+
+## Setting Up Discrete Random Variables
+
+```{r}
+y <- c(2:12)
+proby <- c(1,2,3,4,5,6,5,4,3,2,1)/36
+proby
+```
+
+Using the following function to graph the PMF,
+
+```{r}
+plot.discrete <- function(y, proby) {
+  bars <- as.data.frame(cbind(y, proby))
+  
+  ggplot(bars, aes(x=y, y=proby)) +
+    geom_bar(stat="identity", width=1, fill="blue", colour="black") +
+    theme_bw() +
+    theme(axis.title.y=element_text(size=rel(1.4)),
+          axis.title.y=element_text(size=rel(1.4)),
+          axis.text.x=element_text(size=rel(1.2)),
+          axis.text.y=element_text(size=rel(1.2)),
+          plot.title=)
+}
+```
+
+
