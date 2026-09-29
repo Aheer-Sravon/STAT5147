@@ -1,0 +1,717 @@
+---
+title: "Module 4 - Homework"
+author: "Aheer Sravon"
+format: pdf
+editor: visual
+---
+
+# Problem 1 Solution
+
+## (a)
+
+For a valid pdf, $$
+\int_0^2 cy\,dy=1.
+$$ So, $$
+c\left[\frac{y^2}{2}\right]_0^2=1
+$$
+
+$$
+c\cdot 2=1 \implies c= \frac{1}{2}
+$$
+
+## (b)
+
+Using $c=\frac{1}{2}$,
+
+$$
+  P(0.5 \le Y \le 1.5) = \int_{0.5}^{1.5} \frac{1}{2}y\,dy.
+$$
+
+Therefore,
+
+$$
+P(0.5 \le Y \le 1.5) = \frac{1}{2}
+\left[
+\frac{y^2}{2}
+\right]_{0.5}^{1.5}
+=
+\frac{1}{4}
+\left(1.5^2-0.5^2\right).
+$$
+
+$$
+=
+\frac{1}{4}(2.25-0.25)
+=
+\frac{1}{2}.
+$$
+
+## (c)
+
+The cumulative distribution function is
+
+$$
+F(y)=
+\begin{cases}
+  0, & y<0,\\[4pt]
+  \dfrac{y^2}{4}, & 0\le y\le 2,\\[6pt]
+  1, & y>2.
+\end{cases}
+$$
+
+## (d)
+
+$F(2) - F(1) = 1 - 1/4 = \frac{3}{4}$.
+
+## (e)
+
+$F(y) = 0.3 \implies \frac{y^2}{4} = 0.3 \implies y \approx 1.09544512$
+
+## (f)
+
+$P(Y > y) = 1 - P(Y \leq y) = 1 - F(y) = 0.55 \implies F(y) = 0.45 \implies \frac{y^2}{4} = 0.45 \implies y \approx 1.341641$.
+
+## (g)
+
+The expected value is
+
+$$
+E(Y)
+=
+\int_0^2 y f(y)\,dy.
+$$
+
+Since $f(y)=\frac{1}{2}y$,
+
+$$
+E(Y)
+=
+\int_0^2 y\left(\frac{1}{2}y\right)\,dy
+=
+\frac{1}{2}\int_0^2 y^2\,dy.
+$$
+
+Therefore,
+
+$$
+E(Y)
+=
+\frac{1}{2}
+\left[
+\frac{y^3}{3}
+\right]_0^2
+=
+\frac{1}{2}\cdot\frac{8}{3}
+=
+\frac{4}{3}.
+$$
+
+## (h)
+
+The variance is
+
+$$
+V(Y)=E(Y^2)-\mu^2.
+$$
+
+First,
+
+$$
+E(Y^2)
+=
+\int_0^2 y^2 f(y)\,dy.
+$$
+
+Since $f(y)=\frac{1}{2}y$,
+
+$$
+E(Y^2)
+=
+\int_0^2 y^2\left(\frac{1}{2}y\right)\,dy
+=
+\frac{1}{2}\int_0^2 y^3\,dy.
+$$
+
+Therefore,
+
+$$
+E(Y^2)
+=
+\frac{1}{2}
+\left[
+\frac{y^4}{4}
+\right]_0^2
+=
+\frac{1}{2}\cdot 4
+=
+2.
+$$
+
+Thus,
+
+$$
+V(Y)
+=
+2-\left(\frac{4}{3}\right)^2
+=
+2-\frac{16}{9}
+=
+\frac{2}{9}.
+$$
+
+# Problem 2 Solution
+
+## (a)
+
+$$
+F(y)=
+\begin{cases}
+  0, & y<0,\\[4pt]
+  \dfrac{y^2}{2}, & 0\le y\le1,\\[6pt]
+  \dfrac{2y-1}{2}, & 1<y\le1.5,\\[6pt]
+  1, & y>1.5.
+\end{cases}
+$$
+
+## (b)
+
+$F(0.5) - F(0) = \frac{0.5^2}{2} - 0 = 0.125$.
+
+## (c)
+
+$F(1.2) - F(0.5) = \frac{2\times1.2 - 1}{2}- \frac{0.5^2}{2}=0.575$
+
+## (d)
+
+$F(y) = 0.25$. As the area under the PDF function from 0 to 1 is 0.5, $y$ must be less than 1. So, $\frac{y^2}{2}=0.25 \implies y \approx 0.7071068$.
+
+## (e)
+
+$F(y) = 1-0.25=0.75$. So, $y - \frac{1}{2}=0.75 \implies y=1.25$.
+
+## (f)
+
+The expected value is
+
+$$
+E(Y)
+=
+\int_0^1 y(y)\,dy
++
+\int_1^{1.5} y(1)\,dy.
+$$
+
+Thus,
+
+$$
+E(Y)
+=
+\int_0^1 y^2\,dy
++
+\int_1^{1.5} y\,dy.
+$$
+
+$$
+E(Y)
+=
+\left[\frac{y^3}{3}\right]_0^1
++
+\left[\frac{y^2}{2}\right]_1^{1.5}.
+$$
+
+$$
+E(Y)
+=
+\frac{1}{3}
++
+\frac{1.5^2-1^2}{2}
+=
+\frac{1}{3}
++
+\frac{5}{8}
+=
+\frac{23}{24}.
+$$
+
+## (g)
+
+The variance is
+
+$$
+V(Y)=E(Y^2)-[E(Y)]^2.
+$$
+
+First,
+
+$$
+E(Y^2)
+=
+\int_0^1 y^2(y)\,dy
++
+\int_1^{1.5} y^2(1)\,dy.
+$$
+
+Therefore,
+
+$$
+E(Y^2)
+=
+\int_0^1 y^3\,dy
++
+\int_1^{1.5} y^2\,dy.
+$$
+
+$$
+E(Y^2)
+=
+\left[\frac{y^4}{4}\right]_0^1
++
+\left[\frac{y^3}{3}\right]_1^{1.5}.
+$$
+
+$$
+E(Y^2)
+=
+\frac{1}{4}
++
+\frac{1.5^3-1}{3}
+=
+\frac{1}{4}
++
+\frac{19}{24}
+=
+\frac{25}{24}.
+$$
+
+Hence,
+
+$$
+V(Y)
+=
+\frac{25}{24}
+-
+\left(\frac{23}{24}\right)^2.
+$$
+
+$$
+V(Y)
+=
+\frac{600}{576}
+-
+\frac{529}{576}
+=
+\frac{71}{576}.
+$$
+
+# Problem 3 Solution
+
+$$
+P(a\le Y\le a+b)
+=
+\int_a^{a+b} f(y)\,dy.
+$$
+
+$$
+P(a\le Y\le a+b)
+=
+\int_a^{a+b}1\,dy
+=
+(a+b)-a
+=
+b.
+$$
+
+So it does not depend on $a$ and only depend on $b$.
+
+# Problem 4 Solution
+
+For
+
+$$
+  f(y)=
+  \begin{cases}
+    \dfrac{60}{y^2}, & y\ge 60,\\
+    0, & \text{elsewhere},
+  \end{cases}
+$$
+
+the answers are:
+
+## (a)
+
+Show that $f(y)$ is a valid pdf
+
+A pdf must satisfy:
+
+$$
+  f(y)\ge 0
+$$
+
+and
+
+$$
+  \int_{-\infty}^{\infty} f(y)\,dy=1.
+$$
+
+Here $f(y)\ge 0$, and
+
+$$
+  \int_{-\infty}^{\infty}f(y)\,dy = \int_{60}^{\infty}\frac{60}{y^2}\,dy.
+$$
+
+$$
+= 60\int_{60}^{\infty}y^{-2}\,dy = 60\left[-\frac{1}{y}\right]_{60}^{\infty}.
+$$
+
+$$
+= 60\left(0+\frac{1}{60}\right) = 1.
+$$
+
+Therefore, $f(y)$ is a valid probability density function.
+
+## (b)
+
+Find $P(Y>60+c)$
+
+$$
+P(Y>60+c) = \int_{60+c}^{\infty}\frac{60}{y^2}\,dy.
+$$
+
+Thus,
+
+$$
+P(Y>60+c) = 60\left[-\frac{1}{y}\right]_{60+c}^{\infty}.
+$$
+
+$$
+= \boxed{\frac{60}{60+c}}.
+$$
+
+## (c)
+
+Show that $E(Y)$ is infinite
+
+$$
+E(Y) = \int_{60}^{\infty} y f(y)\,dy.
+$$
+
+Substituting $f(y)=\frac{60}{y^2}$,
+
+$$
+E(Y) = \int_{60}^{\infty} y\left(\frac{60}{y^2}\right)\,dy.
+$$
+
+$$
+= 60\int_{60}^{\infty}\frac{1}{y}\,dy.
+$$
+
+$$
+= 60\left[\ln y\right]_{60}^{\infty}.
+$$
+
+Since
+
+$$
+  \ln y\to\infty
+  \quad\text{as}\quad y\to\infty,
+$$
+
+the integral diverges. Therefore,
+
+$$
+  E(Y)=\infty.
+$$
+
+## (d)
+
+The cumulative distribution function is
+
+$$
+F(y)=P(Y\le y).
+$$
+
+For $y<60$,
+
+$$
+F(y)=0.
+$$
+
+For $y\ge 60$,
+
+$$
+F(y)
+=
+\int_{60}^{y}\frac{60}{t^2}\,dt.
+$$
+
+Therefore,
+
+$$
+F(y)
+=
+60\left[-\frac{1}{t}\right]_{60}^{y}
+=
+1-\frac{60}{y}.
+$$
+
+Hence,
+
+$$
+F(y)=
+\begin{cases}
+0, & y<60,\\[4pt]
+1-\dfrac{60}{y}, & y\ge 60.
+\end{cases}
+$$
+
+## (e)
+
+To generate observations using the inverse CDF method, let
+
+$$
+U\sim \operatorname{Uniform}(0,1).
+$$
+
+Set
+
+$$
+U=F(Y)=1-\frac{60}{Y}.
+$$
+
+Solving for $Y$,
+
+$$
+1-U=\frac{60}{Y}
+$$
+
+and therefore
+
+$$
+Y=\frac{60}{1-U}.
+$$
+
+The following R code generates 10,000 observations:
+
+```{r}
+n <- 10000
+u <- runif(n, 0, 1)
+samples <- 60 / (1 - u)
+
+min(samples)
+max(samples)
+```
+The minimum is very close to the theoretical lower bound of 60 seconds, while the maximum is extremely large. This illustrates the very long right tail of the distribution.
+
+## (f)
+
+```{r}
+hist(
+  samples,
+  breaks = 50,
+  main = "Histogram of Simulated Values of Y",
+  xlab = "Time (seconds)"
+)
+```
+
+Because some extreme observations can make the main portion of the histogram difficult to see, a restricted histogram can also be useful:
+
+```{r}
+hist(
+  samples[samples <= quantile(samples, 0.99)],
+  breaks = 50,
+  main = "Histogram of Y Excluding the Largest 1%",
+  xlab = "Time (seconds)"
+)
+```
+The histogram is extremely right-skewed with a very long, heavy right tail. Most observations are concentrated near the lower bound of 60 seconds, with a small number of extremely large values.
+
+## (g)
+
+The sample mean is
+
+```{r}
+mean(samples)
+```
+
+However, the mean of any finite sample of 10,000 observations is finite because every observation generated in that particular sample is finite. The distribution has a very heavy right tail, so extremely large observations occur with small probability. These rare observations have a large effect on the sample mean. As the sample size increases, increasingly extreme observations may occur, causing the sample mean to vary substantially and potentially become very large. Therefore, the finite sample mean does not contradict the fact that $$
+  E(Y)=\infty.
+$$ The theoretical mean describes the behavior of the entire distribution, whereas the sample mean is calculated from only a finite number of observations.
+
+# Problem 5 Solution
+
+## (a)
+
+Let $Y$ denote the resistance of a randomly selected wire from Company A.
+
+We have
+
+$$
+Y \sim N(0.13,\;0.005^2).
+$$
+
+The wire meets specifications if
+
+$$
+0.12 \le Y \le 0.14.
+$$
+
+Using R:
+
+```{r}
+mu <- 0.13
+sigma <- 0.005
+
+p_meet <- pnorm(0.14, mean = mu, sd = sigma) -
+          pnorm(0.12, mean = mu, sd = sigma)
+
+p_meet
+```
+
+## (b)
+
+Assuming the four wires are independent, the probability that all four meet the specifications is $$
+P(\text{all four meet specifications}) = \left[P(0.12 \le Y \le 0.14)\right]^4.
+$$
+
+```{r}
+p_all_four <- p_meet^4
+p_all_four
+```
+
+# Problem 6 Solution
+
+Let $Y$ denote the number of ounces dispensed into a cup. Then
+
+$$
+Y \sim N(\mu, 0.3^2).
+$$
+
+An 8-ounce cup overflows when $Y>8$. We want
+
+$$
+P(Y>8)=0.01.
+$$
+
+Equivalently,
+
+$$
+P(Y\le 8)=0.99.
+$$
+
+Standardizing,
+
+$$
+P\left(
+Z\le \frac{8-\mu}{0.3}
+\right)=0.99.
+$$
+
+The 99th percentile of the standard normal distribution is:
+
+```{r}
+z <- qnorm(0.99)
+z
+```
+
+Thus, $$
+\frac{8-\mu}{0.3}=z.
+$$ Solving for $\mu$, $$
+\mu = 8 - 0.3z.
+$$
+
+```{r}
+mu <- 8 - 0.3 * qnorm(0.99)
+mu
+```
+
+# Problem 7 Solution
+
+Let $Y$ denote the weekly machine downtime in hours. We are given
+
+$$
+  Y \sim \text{Gamma}(\alpha=3,\beta=2),
+$$
+
+where $\alpha$ is the shape parameter and $\beta$ is the scale parameter.
+
+## (a)
+
+```{r}
+alpha <- 3
+beta <- 2
+p_more_than_3 <- 1 - pgamma(3, shape = alpha, scale = beta)
+p_more_than_3
+```
+
+## (b)
+
+```{r}
+y_95 <- qgamma(0.95, shape = alpha, scale = beta)
+y_95
+```
+
+## (c)
+
+The loss is $$
+L=30Y+2Y^2.
+$$ Therefore, $$
+E(L) = E(30Y+2Y^2) = 30E(Y)+2E(Y^2).
+$$ For a Gamma distribution with shape $\alpha$ and scale $\beta$, $$
+E(Y)=\alpha\beta
+$$ and $$
+V(Y)=\alpha\beta^2.
+$$ Hence, $$
+E(Y)=3(2)=6
+$$ and $$
+V(Y)=3(2^2)=12.
+$$
+
+Using $$
+E(Y^2)=V(Y)+[E(Y)]^2,
+$$ we obtain $$
+E(Y^2)=12+6^2=48.
+$$ Therefore, $$
+E(L) = 30(6)+2(48) = 180+96 = 276.
+$$ Thus, $$
+  E(L)=276
+$$ dollars.
+
+# Problem 8 Solution
+
+## (a)
+
+```{r}
+pexp(12, rate = 1/10) - pexp(6, rate = 1/10)
+```
+
+## (b)
+
+If $\pi r^2 = 64\pi \ \text{feet}^2 \implies r = 8\ \text{feet}$.
+
+```{r}
+1 - pexp(8, rate = 1/10)
+```
+
+## (c)
+
+```{r}
+pi * qexp(0.75, rate = 1/10)^2
+```
+
+# Problem 9 Solution
+## (a)
+```{r}
+pbeta(0.6, shape1 = 1, shape2 = 2) - pbeta(0.2, shape1 = 1, shape2 = 2)
+```
+
+## (b)
+
+$$
+E(Y) = \frac{\alpha}{\alpha + \beta} = \frac{1}{3}
+$$
+
+## (c)
+
+$$
+V(Y) = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)} = \frac{1}{18}
+$$

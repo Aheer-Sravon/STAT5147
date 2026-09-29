@@ -5,6 +5,13 @@ format: pdf
 editor: visual
 ---
 
+# Packages and Functions
+
+```{r}
+source("./functions.R")
+```
+
+# Module 3 Part 2
 
 ## Setting Up Discrete Random Variables
 
@@ -14,21 +21,86 @@ proby <- c(1,2,3,4,5,6,5,4,3,2,1)/36
 proby
 ```
 
-Using the following function to graph the PMF,
+The graph of the distribution of the sum of two dice is,
 
 ```{r}
-plot.discrete <- function(y, proby) {
-  bars <- as.data.frame(cbind(y, proby))
-  
-  ggplot(bars, aes(x=y, y=proby)) +
-    geom_bar(stat="identity", width=1, fill="blue", colour="black") +
-    theme_bw() +
-    theme(axis.title.y=element_text(size=rel(1.4)),
-          axis.title.y=element_text(size=rel(1.4)),
-          axis.text.x=element_text(size=rel(1.2)),
-          axis.text.y=element_text(size=rel(1.2)),
-          plot.title=)
-}
+plot.discrete(y, proby)
+```
+
+Mean of $Y$,
+
+```{r}
+sum(y*proby)
+```
+
+We can also calculate expected values of functions of $Y$,
+
+```{r}
+sum(log(y)*proby)
+sum(sqrt(y)*proby)
+```
+
+The variance($E[Y^2] - \mu^2$) can be calculated in the following way,
+
+```{r}
+sum((y^2)*proby) - sum(y*proby)^2
+```
+
+# Module 3 Part 3
+
+## Calculating Probabilities of Binomial Distribution
+
+- $P(Y = y)$ is `dbiom(y, n, p)`
+- $P(Y \leq y)$ is `dbiom(0:y, n, p)`
+- $P(Y \geq y)$ is `dbiom(y:n, n, p)`
+
+Suppose the random variable $Y$ is the number of times the sum of two dice equals 7 in 30 rolls.
+
+- $P(Y = 8)$
+```{r}
+dbinom(8, 30, 1/6)
+```
+- $P(Y \leq 2)$
+```{r}
+sum(dbinom(0:2, 30, 1/6))
+```
+- $P(Y \geq 6)$
+```{r}
+sum(dbinom(6:30, 30, 1/6))
+```
+
+Below is the graph of the PMF of the Binomial Random Variable with $n = 30$ and $p = \frac{1}{6}$ -
+```{r}
+plot.binom(30, 1/6)
+```
+
+ # Module 3 Part 4
+
+## Calculating Probabilities of Poisson Distribution
+
+- $P(Y = y)$ is `dpois(y, lambda)`.
+- $P(Y \leq y)$ is `sum(dpois(0:y, lambda))`
+- $P(Y \geq y) = 1 - P(Y \leq y-1)$
+
+Let $Y$ be the number of bacteria colonies of a certain type in a sample of polluted water. $Y$ has a poisson distribution with a mean of 2 per 1-cubic centimeter.
+
+- $P(Y = 4)$
+```{r}
+dpois(4, 2)
+```
+
+- $P(Y \leq 2)$
+```{r}
+sum(dpois(0:2, 2))
+```
+
+- $P(Y \geq 6)$
+```{r}
+1 - sum(dpois(0:6-1, 2))
+```
+
+```{r}
+plot.pois(2)
 ```
 
 

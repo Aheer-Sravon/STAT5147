@@ -1,0 +1,208 @@
+---
+title: "STAT5147 Module 3 Homework"
+author: "Aheer Sravon"
+format: pdf
+editor: visual
+---
+
+# Used Function(s)
+
+```{r}
+require(ggplot2)
+
+plot.discrete <- function(y, proby) {
+bars <- as.data.frame(cbind(y, proby))
+
+ggplot(bars, aes(x=y, y=proby)) +
+  geom_bar(stat="identity", width=1, fill="blue", colour="black") +
+  theme_bw() +
+  theme(axis.title.y=element_text(size=rel(1.4)),
+        axis.title.x=element_text(size=rel(1.4)),
+        axis.text.x=element_text(size=rel(1.2)),
+        axis.text.y=element_text(size=rel(1.2)),
+        plot.title=element_text(hjust=0.5, size=rel(1.6))) +
+  labs(
+    x="y",
+    y="p(y)",
+    title="Distribution of Discrete R.V."
+  )
+}
+
+plot.binom <- function(n, p) {
+  y <- c(0:n)
+  proby <- dbinom(0:n, n, p)
+  bars <- as.data.frame(cbind(y, proby))
+  
+  ggplot(bars, aes(x=y, y=proby)) +
+    geom_bar(stat="identity", width=1, fill="blue", colour="black") +
+    theme_bw() +
+    theme(axis.title.y=element_text(size=rel(1.4)),
+          axis.title.x=element_text(size=rel(1.4)),
+          axis.text.x=element_text(size=rel(1.2)),
+          axis.text.y=element_text(size=rel(1.2)),
+          plot.title=element_text(hjust=0.5, size=rel(1.6))) +
+    labs(x="Number of Successes (y)",
+         y="Probability",
+         title="Distribution of Binomial R.V.")
+}
+
+plot.pois<- function(lambda){
+  maxy<- qpois(0.9999, lambda)
+  y<- c(0:maxy)
+  proby<- dpois(0:maxy, lambda)
+  Bars<- as.data.frame(cbind(y, proby))
+  ggplot(Bars, aes(x = y, y = proby))+
+    geom_bar(stat="identity", width = 1,
+             fill = "blue", colour = "black")+
+    theme_bw()+
+    theme(axis.title.y = element_text(size = rel(1.4)),
+          axis.title.x = element_text(size = rel(1.4)),
+          axis.text.x = element_text(size = rel(1.2)),
+          axis.text.y = element_text(size = rel(1.2)),
+          plot.title = element_text(hjust=0.5, size = rel(1.6)))+
+    labs(x = "Number of Events (y)",
+         y = "Probability",
+         title = "Distribution of Poisson R.V.")
+}
+```
+
+# Problem 5
+
+Answer to the question e is calculated below,
+
+```{r}
+sum(dbinom(60:100, 100, 1/2))
+```
+
+Which is only about 3%
+
+# Problem 7
+
+- $p = 0.5, n = 5$
+
+```{r}
+plot.binom(5, 0.5)
+```
+
+- $p = 0.5, n = 10$
+
+```{r}
+plot.binom(10, 0.5)
+```
+
+- $p = 0.5, n = 20$
+
+```{r}
+plot.binom(20, 0.5)
+```
+
+- $p = 0.5, n = 50$
+
+```{r}
+plot.binom(50, 0.5)
+```
+
+- $p = 0.1, n = 25$
+
+```{r}
+plot.binom(25, 0.1)
+```
+
+- $p = 0.1, n = 50$
+
+```{r}
+plot.binom(50, 0.1)
+```
+
+- $p = 0.1, n = 100$
+
+```{r}
+plot.binom(100, 0.1)
+```
+
+- $p = 0.1, n = 250$
+
+```{r}
+plot.binom(250, 0.1)
+```
+
+- $p = 0.9, n = 25$
+
+```{r}
+plot.binom(25, 0.9)
+```
+
+- $p = 0.9, n = 50$
+
+```{r}
+plot.binom(50, 0.9)
+```
+
+- $p = 0.9, n = 100$
+
+```{r}
+plot.binom(100, 0.9)
+```
+
+- $p = 0.9, n = 250$
+
+```{r}
+plot.binom(250, 0.9)
+```
+
+So,
+
+a)  $p = 0.5$
+b)  $p = 0.1$ and $p = 0.9$ are mirror images of each other for the same sample size $n$.
+c)  $p = 0.1$
+d)  $p = 0.9$
+e)  For the last two distributions, the graphs are approximately symmetric for each value of $p$. As the smaller of $np$ and $n(1-p)$ increases, the binomial distribution becomes less skewed and more symmetric about its mean.
+
+# Problem 8
+
+Poisson distribution with $\lambda = 5$ per hour.
+
+a) Probability that exactly four arrivals occur during a particular hour is,
+```{r}
+dpois(4, 5)
+```
+
+b) Probability that at most 2 people arrive during a particular hour is,
+```{r}
+sum(dpois(0:2, 5))
+```
+
+c) Probability that at least 4 people arrive during a particular hour,
+```{r}
+1 - sum(dpois(0:3, 5))
+```
+
+d) Both the mean and the variance of the number of people I expect to arrive during a particular hour is $5$.
+
+e) It's a binomial distribution with success probability equal to `1 - sum(dpois(0:6, 5))`. So the probability is,
+```{r}
+(1 - dbinom(0, 8, (1-sum(dpois(0:6, 5)))))
+```
+
+# Problem 9
+
+- $\lambda=1$
+```{r}
+plot.pois(1)
+```
+- $\lambda=5$
+```{r}
+plot.pois(5)
+```
+
+- $\lambda=25$
+```{r}
+plot.pois(25)
+```
+
+- $\lambda=50$
+```{r}
+plot.pois(50)
+```
+
+As $\lambda$ increases, the Poisson distribution shifts to the right, becomes more spread out, and changes from right-skewed to increasingly symmetric around its mean $\lambda$.
